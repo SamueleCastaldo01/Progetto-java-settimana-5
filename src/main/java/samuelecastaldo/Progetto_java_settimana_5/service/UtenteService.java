@@ -24,6 +24,7 @@ public class UtenteService {
         if(utenteRepository.findByUsername(newUtente.getUsername()).isPresent()) {
             throw new UsernameEsistenteException("Questo username è già presente");
         }
+        System.out.println("Utente salvato: " +newUtente);
          return utenteRepository.save(newUtente);
     }
 

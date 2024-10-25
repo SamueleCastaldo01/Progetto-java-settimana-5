@@ -20,6 +20,7 @@ public class PostazioneService {
     }
 
     public Postazione savePostazione(Postazione newPostazione) {
+        System.out.println("Postazione Salvata: " + newPostazione);
         return postazioneRepository.save(newPostazione);
     }
 

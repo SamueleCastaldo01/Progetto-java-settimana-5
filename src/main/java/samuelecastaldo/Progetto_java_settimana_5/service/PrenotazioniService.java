@@ -20,10 +20,21 @@ public class PrenotazioniService {
     }
 
     //allora qui dovrei fare i vari controlli, per la data e se è libero prima di prenotare
-    //ci vorrebbe anche un update nel caso in cui ci sta una libera, e l'utente ha la possibilità di inserirsi
+    //un controllo che devo fare è che un altro utente in quel giorno non si può prenotare alla stessa postazione allo stesso giorno
     public Prenotazione savePrenotazione(Prenotazione newPrenotazione) {
         Utente us = newPrenotazione.getUtente();
         LocalDate dataPrenotazione = newPrenotazione.getData_prenotazione();
+
+        //controllo se la prenotazione è libera
+        //se è null allora vuol dire che è libera
+        //Se è presente ma utente è null allora pure vuol dire che è libera e quindi può andare avanti
+        Optional<Prenotazione> prenotazioneLibera = prenotazioneRepository.findByDataPrenotazione(dataPrenotazione);
+
+        //questo proprio il controllo che ho scritto sopra per fare la verifica
+        //Se questa condizione è vera allora viene lanciata l'eccezione
+        if(prenotazioneLibera.isPresent() && prenotazioneLibera.get().getUtente() !=null) {
+            throw new IllegalArgumentException("La prenotazione per la data " + dataPrenotazione + "risulta già occupata");
+        }
 
         //qui vado a fare il controllo utente e data, non deve avere più prenotazioni nell stesso giorno
         Optional<Prenotazione> prenotazioneEsistente = prenotazioneRepository.findByUtenteAndDataPrenotazione(us, dataPrenotazione);
@@ -33,6 +44,7 @@ public class PrenotazioniService {
             throw new IllegalArgumentException("L'utente " +us.getNomeCompleto() + "ha già la prenotazione in quella data " + newPrenotazione.getData_prenotazione());
         }
 
+        System.out.println("Prenotazione salvata: " +newPrenotazione);
         return prenotazioneRepository.save(newPrenotazione);
     }
 

@@ -18,6 +18,7 @@ public class EdificioService {
     }
 
     public Edificio saveEdificio(Edificio newEdificio) {
+        System.out.println("Edificio salvato: " +newEdificio);
         return edificioRepository.save(newEdificio);
     }
 

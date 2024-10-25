@@ -47,6 +47,7 @@ public class PostazioneRunner implements CommandLineRunner {
         //la prova la faccio qui per scocciature, basta che funziona. Anche se sta scritto che deve essere l'utente a farlo
         try {
             List<Postazione> resultPostazioni = postazioneService.findByTipoAndCity(TipoPostazione.OPENSPACE, "Napoli");
+            System.out.println();
             for (Postazione postazione : resultPostazioni) {
                 System.out.println(postazione);
             }

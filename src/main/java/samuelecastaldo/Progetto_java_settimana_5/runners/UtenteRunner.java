@@ -21,6 +21,7 @@ public class UtenteRunner implements CommandLineRunner {
         Utente anna = new Utente("anna", "Anna Verdi", "anna@gmail.com");
 
         try {
+            System.out.println();
             utenteService.saveUtente(mario);
             utenteService.saveUtente(anna);
         } catch (UsernameEsistenteException e) {
