@@ -1,5 +1,6 @@
 package samuelecastaldo.Progetto_java_settimana_5.Entities;
 
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -7,14 +8,16 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "utenti")
-public class utente {
+public class Utente {
     @Id
     @GeneratedValue
     private long id;
     private String nomeCompleto;
     private String email;  //qui eventualmente si potrebbe fare un controllo quando faccio il save (extra)
 
-    public utente(String nomeCompleto, String email) {
+    public Utente() {}
+
+    public Utente(String nomeCompleto, String email) {
         this.nomeCompleto = nomeCompleto;
         this.email = email;
     }
@@ -52,3 +55,4 @@ public class utente {
                 '}';
     }
 }
+
