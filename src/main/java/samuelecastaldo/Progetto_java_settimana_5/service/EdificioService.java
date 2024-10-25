@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 import samuelecastaldo.Progetto_java_settimana_5.Entities.Edificio;
 import samuelecastaldo.Progetto_java_settimana_5.repositories.EdificioRepository;
 
+import java.util.List;
+
 @Service
 public class EdificioService {
 
@@ -17,5 +19,9 @@ public class EdificioService {
 
     public Edificio saveEdificio(Edificio newEdificio) {
         return edificioRepository.save(newEdificio);
+    }
+
+    public List<Edificio> findAllEdifici() {
+        return edificioRepository.findAll();
     }
 }
