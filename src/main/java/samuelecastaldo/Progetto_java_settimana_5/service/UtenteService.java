@@ -2,9 +2,12 @@ package samuelecastaldo.Progetto_java_settimana_5.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import samuelecastaldo.Progetto_java_settimana_5.Entities.Edificio;
 import samuelecastaldo.Progetto_java_settimana_5.Entities.Utente;
 import samuelecastaldo.Progetto_java_settimana_5.exception.UsernameEsistenteException;
 import samuelecastaldo.Progetto_java_settimana_5.repositories.UtenteRepository;
+
+import java.util.List;
 
 @Service
 public class UtenteService {
@@ -22,5 +25,9 @@ public class UtenteService {
             throw new UsernameEsistenteException("Questo username è già presente");
         }
          return utenteRepository.save(newUtente);
+    }
+
+    public List<Utente> findAllUtenti() {
+        return utenteRepository.findAll();
     }
 }
