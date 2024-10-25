@@ -22,11 +22,11 @@ public class Utente {
         this.email = email;
     }
 
-    public String getId() {
+    public String getUsername() {
         return username;
     }
 
-    public void setId(String username) {
+    public void setUsername(String username) {
         this.username = username;
     }
 
