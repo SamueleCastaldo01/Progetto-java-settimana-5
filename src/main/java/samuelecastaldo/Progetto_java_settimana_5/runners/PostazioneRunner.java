@@ -54,8 +54,5 @@ public class PostazioneRunner implements CommandLineRunner {
             System.out.println(e.getMessage());
         }
 
-
-
-
     }
 }

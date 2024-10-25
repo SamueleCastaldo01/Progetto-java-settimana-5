@@ -12,3 +12,6 @@ public class ProgettoJavaSettimana5Application {
 	}
 
 }
+
+//lo ho letto alla fine che il progetto lo dovevo chiamare GestionePrenotazioni, vb pazienza penso che non sia un grosso problema
+//il database si chiama: progetto5
