@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import samuelecastaldo.Progetto_java_settimana_5.Entities.Edificio;
 import samuelecastaldo.Progetto_java_settimana_5.Entities.Postazione;
 import samuelecastaldo.Progetto_java_settimana_5.Entities.enu.TipoPostazione;
+import samuelecastaldo.Progetto_java_settimana_5.exception.PostazioneNonTrovataException;
 import samuelecastaldo.Progetto_java_settimana_5.service.EdificioService;
 import samuelecastaldo.Progetto_java_settimana_5.service.PostazioneService;
 
@@ -42,6 +43,18 @@ public class PostazioneRunner implements CommandLineRunner {
                 postazioneService.savePostazione(postazione);
             }
         }
+
+        //la prova la faccio qui per scocciature, basta che funziona. Anche se sta scritto che deve essere l'utente a farlo
+        try {
+            List<Postazione> resultPostazioni = postazioneService.findByTipoAndCity(TipoPostazione.OPENSPACE, "Napoli");
+            for (Postazione postazione : resultPostazioni) {
+                System.out.println(postazione);
+            }
+        } catch (PostazioneNonTrovataException e) {
+            System.out.println(e.getMessage());
+        }
+
+
 
 
     }
