@@ -10,7 +10,8 @@ public class Prenotazione {
     @Id
     @GeneratedValue
     private long id;
-    private LocalDate data_prenotazione;
+    @Column(name = "data_prenotazione")
+    private LocalDate dataPrenotazione;
     @ManyToOne  //una prenotazione può essere associata ad una sola postazione, ma una postazioni può avere più prenotazioni
     @JoinColumn(name = "id_postazione", nullable = false)
     private Postazione postazione;
@@ -20,9 +21,8 @@ public class Prenotazione {
 
     public Prenotazione() {}
 
-    public Prenotazione(long id, LocalDate data_prenotazione, Postazione postazione, Utente utente) {
-        this.id = id;
-        this.data_prenotazione = data_prenotazione;
+    public Prenotazione(LocalDate data_prenotazione, Postazione postazione, Utente utente) {
+        this.dataPrenotazione = data_prenotazione;
         this.postazione = postazione;
         this.utente = utente;
     }
@@ -36,11 +36,11 @@ public class Prenotazione {
     }
 
     public LocalDate getData_prenotazione() {
-        return data_prenotazione;
+        return dataPrenotazione;
     }
 
     public void setData_prenotazione(LocalDate data_prenotazione) {
-        this.data_prenotazione = data_prenotazione;
+        this.dataPrenotazione = data_prenotazione;
     }
 
     public Postazione getPostazione() {
@@ -63,7 +63,7 @@ public class Prenotazione {
     public String toString() {
         return "Prenotazione{" +
                 "id=" + id +
-                ", data_prenotazione=" + data_prenotazione +
+                ", data_prenotazione=" + dataPrenotazione +
                 ", postazione=" + postazione +
                 ", utente=" + utente +
                 '}';

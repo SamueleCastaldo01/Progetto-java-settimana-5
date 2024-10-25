@@ -30,7 +30,7 @@ public class PrenotazioniService {
 
         //controllo effettivo
         if(prenotazioneEsistente.isPresent()) {
-            throw new IllegalArgumentException("L'utente " +us.getNomeCompleto() + "ha già la prenotazione in quella data");
+            throw new IllegalArgumentException("L'utente " +us.getNomeCompleto() + "ha già la prenotazione in quella data " + newPrenotazione.getData_prenotazione());
         }
 
         return prenotazioneRepository.save(newPrenotazione);
