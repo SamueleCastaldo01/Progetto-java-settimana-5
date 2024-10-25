@@ -33,7 +33,7 @@ public class PrenotazioniService {
         //questo proprio il controllo che ho scritto sopra per fare la verifica
         //Se questa condizione è vera allora viene lanciata l'eccezione
         if(prenotazioneLibera.isPresent() && prenotazioneLibera.get().getUtente() !=null) {
-            throw new IllegalArgumentException("La prenotazione per la data " + dataPrenotazione + "risulta già occupata");
+            throw new IllegalArgumentException("La prenotazione per la data " + dataPrenotazione + " risulta già occupata");
         }
 
         //qui vado a fare il controllo utente e data, non deve avere più prenotazioni nell stesso giorno
