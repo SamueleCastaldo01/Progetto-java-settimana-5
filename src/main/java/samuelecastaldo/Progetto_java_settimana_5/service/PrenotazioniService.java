@@ -19,6 +19,7 @@ public class PrenotazioniService {
         this.prenotazioneRepository = prenotazioneRepository;
     }
 
+
     //allora qui dovrei fare i vari controlli, per la data e se è libero prima di prenotare
     //ci vorrebbe anche un update nel caso in cui ci sta una libera, e l'utente ha la possibilità di inserirsi
     public Prenotazione savePrenotazione(Prenotazione newPrenotazione) {
