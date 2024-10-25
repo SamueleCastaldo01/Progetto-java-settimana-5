@@ -10,24 +10,24 @@ import jakarta.persistence.Table;
 @Table(name = "utenti")
 public class Utente {
     @Id
-    @GeneratedValue
-    private long id;
+    private String username;  //qui deve fare il controllo che sia univoco, dovrei gestire solo l'eccezione
     private String nomeCompleto;
     private String email;  //qui eventualmente si potrebbe fare un controllo quando faccio il save (extra)
 
     public Utente() {}
 
-    public Utente(String nomeCompleto, String email) {
+    public Utente(String username, String nomeCompleto, String email) {
+        this.username = username;
         this.nomeCompleto = nomeCompleto;
         this.email = email;
     }
 
-    public long getId() {
-        return id;
+    public String getId() {
+        return username;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setId(String username) {
+        this.username = username;
     }
 
     public String getNomeCompleto() {
@@ -49,7 +49,7 @@ public class Utente {
     @Override
     public String toString() {
         return "utente{" +
-                "id=" + id +
+                "username=" + username +
                 ", nomeCompleto='" + nomeCompleto + '\'' +
                 ", email='" + email + '\'' +
                 '}';
